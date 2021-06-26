@@ -1,5 +1,5 @@
-Compiler.Control.Print.printDepth  := 100;
-Compiler.Control.Print.printLength := 100;
+Control.Print.printDepth  := 100;
+Control.Print.printLength := 100;
 
 val script = ref "test.sml"
 
