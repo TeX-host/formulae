@@ -1,6 +1,9 @@
 signature GEN_FRACTION  =
 sig
-  open BasicTypes;  open BoxTypes
+  type style = BasicTypes.style
+  type delim = BasicTypes.delim
+  type box = BoxTypes.box
+
   val makeGenFraction:
       style -> dist option -> delim -> delim -> box -> box -> box
 end  (* signature GEN_FRACTION *)

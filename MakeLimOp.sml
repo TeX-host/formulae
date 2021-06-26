@@ -1,6 +1,10 @@
 signature MAKE_LIM_OP  =
 sig
-  open BasicTypes;  open BoxTypes
+  type style = BasicTypes.style
+  type dist = BasicTypes.dist
+  type node = BoxTypes.node
+  type box = BoxTypes.box
+
   val makeLimOp:  style -> dist -> node -> box option -> box option -> box
 end  (* signature MAKE_LIM_OP *)
 (*----------*)

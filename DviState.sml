@@ -1,6 +1,7 @@
 signature DVI_STATE  =
 sig
-  open BasicTypes;  open FontTypes
+  type dist = BasicTypes.dist
+  type fontNr = FontTypes.fontNr
 
   val getX   :  unit -> dist
   val moveX  :  dist -> unit

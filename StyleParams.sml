@@ -1,6 +1,8 @@
 signature STYLE_PARAMS  =
 sig
-  open BasicTypes
+  type dist = BasicTypes.dist
+  type size = BasicTypes.size
+
   val xHeight:        style -> dist
   val MathUnit:       style -> dist
   val atopNum:        style -> dist

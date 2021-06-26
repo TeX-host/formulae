@@ -1,6 +1,6 @@
 signature DISTANCE  =
 sig
-  open BasicTypes
+  type dist = BasicTypes.dist
   val zero :  dist
   val one  :  dist
   val half :  dist -> dist

@@ -1,6 +1,9 @@
 signature AXIS_CENTER  =
 sig
-  open BasicTypes;  open BoxTypes
+  type style = BasicTypes.style
+  type box = BoxTypes.box
+  type node = BoxTypes.node
+
   val axisCenter:     style -> box -> node
 end  (* signature AXIS_CENTER *)
 (*----------*)

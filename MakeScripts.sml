@@ -1,6 +1,11 @@
 signature MAKE_SCRIPTS  =
 sig
-  open BasicTypes;  open BoxTypes
+    type style = BasicTypes.style
+    type dist = BasicTypes.dist
+    type node = BoxTypes.node
+    type box = BoxTypes.box
+    type hlist = BoxTypes.hlist
+
   val makeSup:
           style -> bool -> bool -> dist -> node -> box -> hlist
   val makeSub:

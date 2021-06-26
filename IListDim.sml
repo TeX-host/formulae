@@ -1,6 +1,8 @@
 signature ILIST_DIM  =
 sig
-  open BasicTypes;  open IListTypes
+  type ilist = IListTypes.ilist
+  type dist = BasicTypes.dist
+
   val  ilistHeight:  ilist -> dist
   val  ilistDepth:   ilist -> dist
 end  (* signature ILIST_DIM *)

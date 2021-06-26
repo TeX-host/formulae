@@ -1,6 +1,10 @@
 signature INPUT  =
 sig
-  open BasicTypes;  open MathTypes
+  type mlist = MathTypes.mlist
+  type noad = MathTypes.noad
+  type kind = MathTypes.kind
+  type style = BasicTypes.style
+
   val trans      : string -> mlist
   val overline   : mlist -> noad
   val underline  : mlist -> noad

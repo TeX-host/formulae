@@ -1,6 +1,10 @@
 signature MAKE_FRACT  =
 sig
-  open BasicTypes;  open BoxTypes
+  type style = BasicTypes.style
+  type dist = BasicTypes.dist
+  type box = BoxTypes.box
+  type node = BoxTypes.node
+
   val makeFract:  style -> dist -> dist -> box -> box -> node
 end  (* signature MAKE_FRACT *)
 (*----------*)

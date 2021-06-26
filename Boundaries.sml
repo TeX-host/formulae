@@ -1,6 +1,11 @@
 signature BOUNDARIES  =
 sig
-  open BasicTypes;  open BoxTypes;  open IListTypes
+  type style = BasicTypes.style
+  type dist = BasicTypes.dist
+  type delim = BasicTypes.delim
+  type node = BoxTypes.node
+  type ilist = IListTypes.ilist
+
   val makeBoundaries:    style -> dist -> dist -> delim -> delim -> node * node
   val attachBoundaries:  style -> delim -> delim -> ilist -> ilist
 end  (* signature BOUNDARIES *)

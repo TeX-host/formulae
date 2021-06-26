@@ -1,7 +1,9 @@
 signature LOAD_FONT  =
 sig
-  open Vector
-  open BasicTypes;  open FontTypes
+  type family = BasicTypes.family
+  type size = BasicTypes.size
+  type font = FontTypes.font
+
   val loadFont:   family * size -> font
 end
 (*----------*)

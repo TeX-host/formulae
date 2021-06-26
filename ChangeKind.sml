@@ -1,6 +1,8 @@
 signature CHANGE_KIND  =
 sig
-  open MathTypes;  open IListTypes
+  type kind = MathTypes.kind
+  type ilist = IListTypes.ilist
+
   val changeKind:  kind -> kind -> ilist -> kind
 end  (* signature CHANGE_KIND *)
 (*----------*)

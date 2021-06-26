@@ -1,6 +1,9 @@
 signature MAKE_VBOX  =
 sig
-  open BasicTypes;  open BoxTypes
+  type dist = BasicTypes.dist
+  type node = BoxTypes.node
+  type vlist = BoxTypes.vlist
+  type box = BoxTypes.box
 
   val makeVBox:  dist -> node -> vlist -> vlist -> box
   (* 1. width,

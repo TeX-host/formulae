@@ -1,7 +1,9 @@
 signature BOX_PACK  =
 sig
-  open BasicTypes
-  open BoxTypes
+  type hlist = BoxTypes.hlist
+  type box = BoxTypes.box
+  type dist = BasicTypes.dist
+
   val boxList:       hlist -> box
 
   val setWidth:      dist -> hlist -> box

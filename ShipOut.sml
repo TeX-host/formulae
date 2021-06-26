@@ -1,6 +1,7 @@
 signature SHIP_OUT  =
 sig
-  open BoxTypes
+  type hlist = BoxTypes.hlist
+  
   val shipOut:  hlist list -> unit
 end
 

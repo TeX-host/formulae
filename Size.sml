@@ -1,6 +1,9 @@
 signature SIZE  =
 sig
-  open BasicTypes
+  type family = BasicTypes.family
+  type style = BasicTypes.style
+  type size = BasicTypes.size
+
   val size: family -> style -> size
 end  (* signature SIZE *)
 (*-----------*)

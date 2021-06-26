@@ -1,6 +1,7 @@
 signature CHANGE_STYLE  =
 sig
-  open BasicTypes
+  type style = BasicTypes.style
+
   val fract:  style -> style
   val script: style -> style
 end  (* signature CHANGE_STYLE *)

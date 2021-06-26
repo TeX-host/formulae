@@ -1,7 +1,13 @@
 signature BASIC_BOX  =
 sig
-  open BasicTypes
-  open BoxTypes
+  type dist = BasicTypes.dist
+  type node = BoxTypes.node
+  type glueSpec = BoxTypes.glueSpec
+  type box = BoxTypes.box
+  type dim = BoxTypes.dim
+  type hlist = BoxTypes.hlist
+  type vlist = BoxTypes.vlist
+
   val rule: dist -> dist -> node (* height and width *)
   val ssGlue:   glueSpec
   val emptyBox: box

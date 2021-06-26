@@ -1,6 +1,8 @@
 signature FORMULA  =
 sig
-  open BoxTypes;  open MathTypes
+  type mlist = MathTypes.mlist
+  type hlist = BoxTypes.hlist
+
   val inlineFormula:   mlist -> hlist
   val displayFormula:  mlist -> hlist
 end  (* signature FORMULA *)

@@ -1,6 +1,7 @@
 signature MATH_GLUE  =
 sig
-  open MathTypes
+  type mathSpace = MathTypes.mathSpace
+
   val noSkip     :  mathSpace option
   val thinSkip   :  mathSpace option
   val medSkip    :  mathSpace option

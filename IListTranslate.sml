@@ -1,6 +1,9 @@
 signature ILIST_TRANSLATE  =
 sig
-  open BasicTypes;  open BoxTypes;  open IListTypes
+  type style = BasicTypes.style
+  type ilist = IListTypes.ilist
+  type hlist = BoxTypes.hlist
+
   val IListToHList:  style -> bool -> ilist -> hlist
 end  (* signature ILIST_TRANSLATE *)
 (*----------*)

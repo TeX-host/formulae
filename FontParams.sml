@@ -1,6 +1,8 @@
 signature FONT_PARAMS  =
 sig
-  open BasicTypes;  open Size
+  type size = BasicTypes.size
+  type dist = BasicTypes.dist
+
   val math_x_height: size -> dist        (* height of `x' *)
   val math_quad:     size -> dist        (* width  of `M' *)
   val num1:   size -> dist    (* numerator shift-up in display style *)

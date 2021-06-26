@@ -1,6 +1,8 @@
 signature MAKE_LINE  =
 sig
-  open BasicTypes;  open BoxTypes
+  type style = BasicTypes.style
+  type box = BoxTypes.box
+
   val makeOver:   style -> box -> box
   val makeUnder:  style -> box -> box
 end  (* signature MAKE_LINE *)

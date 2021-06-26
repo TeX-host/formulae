@@ -1,7 +1,9 @@
 signature NODE_LIST_DIM  =
 sig
-  open BasicTypes
-  open BoxTypes
+  type hlist = BoxTypes.hlist
+  type vlist = BoxTypes.vlist
+  type dist = BasicTypes.dist
+
   (* Versions of width, height, and depth for node lists *)
   val hlistWidth:  hlist -> dist
   val hlistHeight: hlist -> dist

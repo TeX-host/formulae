@@ -1,6 +1,9 @@
 signature MAKE_ATOP  =
 sig
-  open BasicTypes;  open BoxTypes
+  type style = BasicTypes.style
+  type box = BoxTypes.box
+  type node = BoxTypes.node
+
   val makeAtop:  style -> box -> box -> node
 end  (* signature MAKE_ATOP *)
 (*----------*)

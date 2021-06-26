@@ -1,6 +1,10 @@
 signature DELIMITER  =
 sig
-  open BasicTypes;  open BoxTypes
+  type style = BasicTypes.style
+  type dist = BasicTypes.dist
+  type delim = BasicTypes.delim
+  type node = BoxTypes.node
+
   val varDelimiter:  style -> dist -> delim -> node
   val makeDelimiter: style -> delim -> node
 end  (* signature DELIMITER *)

@@ -1,8 +1,11 @@
 signature FONT_VECTOR  =
 sig
-  open Vector
-  open BasicTypes;  open FontTypes
-  open Size;  open LoadFont
+  type family = BasicTypes.family
+  type size = BasicTypes.size
+  type vector = Vector.vector
+  type fontNr = FontTypes.fontNr
+  type font = FontTypes.font
+
   val famSizeVector:   (family * size) vector
   val fontNumberVector: fontNr vector
   val fontVector:       font   vector
