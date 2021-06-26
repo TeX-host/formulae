@@ -24,6 +24,7 @@ struct
                    in  f  end
 
   val sum     =  fold (op +) 0
+  fun max(x,y) = if x > y then x else y
   val Max     =  fold  max   0
   val concat  =  fold (op @) []
 
