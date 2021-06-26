@@ -2,7 +2,6 @@ signature GENERAL  =
 sig
   val sum: int list -> int
   val Max: int list -> int
-  val concat: 'a list list -> 'a list
   val contains:  ''a list -> ''a -> bool
   val revAppend:  'a list -> 'a list -> 'a list      (* rev a @ b *)
   val optVal:     'a -> 'a option -> 'a
@@ -26,7 +25,6 @@ struct
   val sum     =  fold (op +) 0
   fun max(x,y) = if x > y then x else y
   val Max     =  fold  max   0
-  val concat  =  fold (op @) []
 
   fun contains list x  =  let fun f    []     =  false
                               |   f (h :: t)  =  (h = x)  orelse  f t
