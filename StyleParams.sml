@@ -1,6 +1,6 @@
 signature STYLE_PARAMS  =
 sig
-  type style = BasicTypes.style
+  type style = BasicTypes.style
   type dist = BasicTypes.dist
 
   val xHeight:        style -> dist
