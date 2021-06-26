@@ -30,7 +30,7 @@ struct
   (* The next two functions read until the next end of line,
      consuming the newline character *)
   fun getDist size file  =
-  realMult (valOf (Real.fromString (inputLine file)), size)
+    realMult (valOf (Real.fromString (valOf (inputLine file))), size)
 
   fun getOctal file  =
   let fun found n  =
