@@ -11,7 +11,7 @@ fun merk f  =  if f <> "" then script := f ^ ".sml" else ()
 fun edit fileName  =
 (  system ("cp " ^ fileName ^ " @tmp");
    system ("vi " ^ fileName);
-   if  system ("cmp -s @tmp " ^ fileName) = 1  then  use fileName  else  ()
+   if  system ("cmp -s @tmp " ^ fileName) = 0wx1  then  use fileName  else  ()
 )
 
 fun U f  =  ( merk f;  use  (!script) )
