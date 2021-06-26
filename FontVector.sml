@@ -2,7 +2,6 @@ signature FONT_VECTOR  =
 sig
   type family = BasicTypes.family
   type size = BasicTypes.size
-  type vector = Vector.vector
   type fontNr = FontTypes.fontNr
   type font = FontTypes.font
 
