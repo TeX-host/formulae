@@ -1,4 +1,5 @@
-Overview of the organization of the source code:
+Overview of the organization of the source code
+===============================================
 
 The whole code is distributed into lots of files.
 File "Xxx.sml" usually contains a signature "XXX" followed by a structure "Xxx".
