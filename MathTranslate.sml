@@ -7,7 +7,7 @@ sig
   type delim = BasicTypes.delim
   type node = BoxTypes.node
   type dist = BasicTypes.dist
-  type script = CHANGE_STYLE.script
+  type script = MathTypes.script
   type limits = MathTypes.limits
   type noad = MathTypes.noad
   type hlist = BoxTypes.hlist
