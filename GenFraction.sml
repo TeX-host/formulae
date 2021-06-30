@@ -3,6 +3,7 @@ sig
   type style = BasicTypes.style
   type delim = BasicTypes.delim
   type box = BoxTypes.box
+  type dist = BasicTypes.dist
 
   val makeGenFraction:
       style -> dist option -> delim -> delim -> box -> box -> box
