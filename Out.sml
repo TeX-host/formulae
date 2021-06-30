@@ -28,7 +28,7 @@ struct
 
   fun outByte b  =  output1   (getStream (), b)
 
-  fun outPos ()  =  getPosOut (getStream ())
+  fun outPos ()  = Position.toInt (StreamIO.filePosOut (getPosOut (getStream ())))
 
   fun endOut ()  =  closeOut  (getStream ())
 
