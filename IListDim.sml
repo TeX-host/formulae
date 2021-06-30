@@ -12,6 +12,7 @@ structure IListDim: ILIST_DIM  =
 struct
   open BasicTypes;  open BoxTypes;  open IListTypes
   open Distance;  open NodeListDim
+  open General
 
   fun  ilistDim (f: hlist -> dist)  =
        fn []                     =>  zero

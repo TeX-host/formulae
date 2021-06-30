@@ -1,6 +1,7 @@
 signature GENERAL  =
 sig
   val sum: int list -> int
+  val max: int * int -> int
   val Max: int list -> int
   val contains:  ''a list -> ''a -> bool
   val revAppend:  'a list -> 'a list -> 'a list      (* rev a @ b *)
