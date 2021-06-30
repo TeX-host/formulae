@@ -1,3 +1,48 @@
+A re-implementation of TeX's formula layout in SML
+==================================================
+
+> with some update to support [SML/NJ 110.99.1](https://www.smlnj.org/)
+
+
+## Compile
+
+```bash
+# clone project
+git clone https://github.com/TeX-host/formulae
+cd formulae
+
+# start SML in project dir
+# for Win: `E:\proj\tex\SMLNJ\bin\sml.bat`
+sml
+
+# run project in SML repl
+use "edit.m";
+U "all";
+```
+
+if there is no error and it print:
+```
+...
+val out = fn : BoxTypes.hlist list -> unit
+val test1 = fn : unit -> unit
+val test2 = fn : unit -> unit
+val it = () : unit
+val it = () : unit
+-
+```
+
+Then you can run tests:
+
++ `test1 ();` it generate 4 simple equtions in `das.dvi`
+    ![](img/test1.png)
++ `test2 ();` it generate 4 complex equtions in `das.dvi`
+    ![](img/test2.png)
+
+
+
+## The original description
+
+```
 This directory contains a re-implementation of TeX's formula layout
 written in Standard ML of New Jersey, version 109.2
 by Reinhold Heckmann, Universitaet des Saarlandes,
@@ -69,3 +114,4 @@ submitted to Journal of Functional Programming.
 Unfortunately, there is no documentation of the usage of the system
 other than the remarks in this file
 (mainly because we have not yet implemented a nice user interface).
+```
