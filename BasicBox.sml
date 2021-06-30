@@ -30,7 +30,7 @@ struct
 
   (* makebox: boxkind -> dim -> node list -> box
         constructs a box of given kind with given dimensions and content *)
-  fun makebox boxkind {height = h, depth = d, width = w} nl  =
+  fun makebox (boxkind: boxkind ) ({height = h, depth = d, width = w}: dim) (nl: node list)  =
           {kind    = boxkind,
            height  = h,   depth = d,  width = w,
            content = nl,  glueParam = natural}
