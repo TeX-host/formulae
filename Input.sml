@@ -1,9 +1,9 @@
 signature INPUT  =
 sig
-  type mlist = MathTypes.mlist
-  type noad = MathTypes.noad
-  type kind = MathTypes.kind
-  type style = BasicTypes.style
+  type mlist = MathTypes.mlist
+  type noad = MathTypes.noad
+  type kind = MathTypes.kind
+  type style = BasicTypes.style
 
   val trans      : string -> mlist
   val overline   : mlist -> noad

@@ -3,10 +3,10 @@ sig
   type boxkind = BoxTypes.boxkind
   type fontNr = FontTypes.fontNr
   type charInfo = FontTypes.charInfo
-  type dim = BoxTypes.dim
-  type dist = BasicTypes.dist
-  type glueParam = BoxTypes.glueParam
-  type glueSpec = BoxTypes.glueSpec
+  type dim = BoxTypes.dim
+  type dist = BasicTypes.dist
+  type glueParam = BoxTypes.glueParam
+  type glueSpec = BoxTypes.glueSpec
 
 
   val outChar:  boxkind -> (fontNr * charCode) -> unit

@@ -1,10 +1,10 @@
 signature SET_BOX  =
 sig
-  type boxkind = BoxTypes.boxkind
-  type glueParam = BoxTypes.glueParam
-  type node = BoxTypes.node
-  type box = BoxTypes.box
-  type hlist = BoxTypes.hlist
+  type boxkind = BoxTypes.boxkind
+  type glueParam = BoxTypes.glueParam
+  type node = BoxTypes.node
+  type box = BoxTypes.box
+  type hlist = BoxTypes.hlist
 
   val setNode:   boxkind -> glueParam -> node -> unit
   val setList:   boxkind -> glueParam -> node list -> unit

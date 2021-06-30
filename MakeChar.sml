@@ -1,11 +1,11 @@
 signature MAKE_CHAR  =
 sig
-  type style = BasicTypes.style
-  type family = BasicTypes.family
-  type charCode = BasicTypes.charCode
-  type hlist = BoxTypes.hlist
-  type node = BoxTypes.node
-  type dist = BasicTypes.dist
+  type style = BasicTypes.style
+  type family = BasicTypes.family
+  type charCode = BasicTypes.charCode
+  type hlist = BoxTypes.hlist
+  type node = BoxTypes.node
+  type dist = BasicTypes.dist
 
   val makeChar:     style -> family -> charCode -> hlist
   val makeNucChar:  style -> bool -> family -> charCode -> node * dist * bool
