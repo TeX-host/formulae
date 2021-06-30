@@ -1,6 +1,7 @@
 signature KIND  =
 sig
   type noad = MathTypes.noad
+  type kind = MathTypes.kind
 
   val noadKind:   noad -> kind
 end  (* signature KIND *)
