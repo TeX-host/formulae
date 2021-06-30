@@ -2,7 +2,7 @@ signature SET_NODE  =
 sig
   type boxkind = BoxTypes.boxkind
   type fontNr = FontTypes.fontNr
-  type charInfo = FontTypes.charInfo
+  type charCode = BasicTypes.charCode
   type dim = BoxTypes.dim
   type dist = BasicTypes.dist
   type glueParam = BoxTypes.glueParam
