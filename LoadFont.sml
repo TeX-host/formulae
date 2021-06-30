@@ -18,7 +18,9 @@ struct
 
   fun sizeExt s  =  Int.toString (s div 10) ^ Int.toString (s mod 10)
 
-  fun FileName fam s  =  famName fam ^ sizeExt s
+  (* where to find fonts *)
+  val fontDir = "fonts/"
+  fun FileName fam s  = fontDir ^ famName fam ^ sizeExt s
 
   fun dig ch  =  ord ch - ord #"0"
 
