@@ -15,6 +15,8 @@ structure Boundaries: BOUNDARIES  =
 struct
   open BasicTypes;  open BoxTypes;  open IListTypes
   open Const;  open StyleParams;  open Delimiter;  open IListDim
+  open General
+
   fun delimiterSize axisDist  =
       max ((axisDist div 500) * delimiterFactor,   (* units of 1000! *)
            2 * axisDist - delimiterShortfall)
