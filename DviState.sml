@@ -1,3 +1,4 @@
+(* State information needed for dvi compression *)
 signature DVI_STATE  =
 sig
   type dist = BasicTypes.dist
@@ -18,7 +19,7 @@ sig
   val isDefined :  fontNr -> bool
   val addFont   :  fontNr -> unit
   val definedFonts : unit -> fontNr list
-  
+
   val actPage  :  unit -> int
   val nextPage :  unit -> unit
 
@@ -37,8 +38,10 @@ end
 
 structure DviState: DVI_STATE  =
 struct
-  open BasicTypes;  open FontTypes
-  open General;  open Out
+  open BasicTypes
+  open FontTypes
+  open General
+  open Out
 
   fun incr (n: int) r  =  (r := !r + n)
   val inc  =  incr   1
@@ -64,7 +67,7 @@ struct
   fun isDefined f  =  contains (!fontList) f
   fun addFont   f  =  (fontList  :=  f :: !fontList)
   fun definedFonts ()  =  !fontList
-  
+
   val pageNr  =  ref 0
   fun actPage  ()  =  !pageNr
   fun nextPage ()  =  inc pageNr
@@ -73,17 +76,25 @@ struct
   val newPos  =  ref (~1)
   fun prevPos ()  =  !oldPos
   fun actPos  ()  =  !newPos
-  fun markPos ()  =  (oldPos := !newPos;  newPos := outPos ())
+  fun markPos ()  =
+    (
+      oldPos := !newPos;
+      newPos := outPos ()
+    )
 
   val ActLevel  =  ref 0
   val MaxLevel  =  ref 0
-  fun incLevel ()  =  (inc ActLevel;
-                       if  !ActLevel > !MaxLevel  then  inc MaxLevel  else  () )
+  fun incLevel ()  =
+    (
+      inc ActLevel;
+      if  !ActLevel > !MaxLevel  then  inc MaxLevel  else  ()
+    )
   fun decLevel ()  =  dec ActLevel
   fun maxLevel ()  =  !MaxLevel
 
   fun initState ()  =
-    ( xMove     :=  0;
+    (
+      xMove     :=  0;
       yMove     :=  0;
       actFont   :=  noFont;
       fontList  :=  [];
