@@ -13,32 +13,35 @@ You can use those code in 2-clause BSD license: [reduce-algebra/reduce-algebra/c
 git clone https://github.com/TeX-host/formulae
 cd formulae
 
+# generate dvi files
+# for Win: `SMLNJ\bin\sml.bat`
+sml CI.sml
+```
+
++ 4 simple equtions in `test1.dvi`
+    ![](img/test1.png)
++ 4 complex equtions in `test2.dvi`
+    ![](img/test2.png)
+
+
+**explore**
+
+```sh
 # start SML in project dir
-# for Win: `E:\proj\tex\SMLNJ\bin\sml.bat`
+# for Win: `SMLNJ\bin\sml.bat`
 sml
 
 # run project in SML repl
 use "edit.m";
 U "all";
-```
 
-if there is no error and it print:
-```
-...
-val out = fn : BoxTypes.hlist list -> unit
-val test1 = fn : unit -> unit
-val test2 = fn : unit -> unit
-val it = () : unit
-val it = () : unit
--
-```
+# gen test1.dvi
+test1 ()
+# gen test2.dvi
+test2 ()
 
-Then you can run tests:
-
-+ `test1 ();` it generate 4 simple equtions in `das.dvi`
-    ![](img/test1.png)
-+ `test2 ();` it generate 4 complex equtions in `das.dvi`
-    ![](img/test2.png)
+# explore the project in REPL
+```
 
 
 ## [Overview](OVERVIEW.md)

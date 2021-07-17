@@ -8,7 +8,7 @@ fun test f x  =  (f x) handle (ex as BasicTypes.NotImplemented s)
 val disp = test Formula.displayFormula
 val line = test Formula.inlineFormula
 
-fun form formula  =  ShipOut.shipOut [disp formula, line formula]
+fun form dviName formula  =  ShipOut.shipOut dviName [disp formula, line formula]
 
 val bigop  =  sum (SOME (trans "i=1")) (SOME (trans "n"))
 
@@ -28,5 +28,10 @@ val mlss'  =  fss sum @ fss int @ scr "a" @ scr "b" @ scr "aa" @ scr "ab"
 val overmlss'  =  [overline mlss']
 
 val out = ShipOut.shipOut
-fun test1 ()  =  out [disp mlar, line mlar, disp mleq, line mleq]
-fun test2 ()  =  out [disp mlss', disp overmlss', line mlss', line overmlss']
+(* generate 4 simple equtions *)
+fun test1 ()  =  out "test1.dvi" [disp mlar, line mlar, disp mleq, line mleq]
+(* generate 4 complex equtions *)
+fun test2 ()  =  out "test2.dvi" [disp mlss', disp overmlss', line mlss', line overmlss']
+
+(* exit REPL *)
+fun exit () = OS.Process.exit OS.Process.success;
