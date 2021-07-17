@@ -43,20 +43,24 @@ struct
   open General
   open Out
 
+
   fun incr (n: int) r  =  (r := !r + n)
   val inc  =  incr   1
   val dec  =  incr (~1)
 
+  (* Maybe dvi_h *)
   val xMove  =  ref 0
   fun getX   ()  =  !xMove
   fun moveX  dx  =  incr dx xMove
   fun resetX ()  =  (xMove := 0)
 
+  (* Maybe dvi_v *)
   val yMove  =  ref 0
   fun getY   ()  =  !yMove
   fun moveY  dy  =  incr dy yMove
   fun resetY ()  =  (yMove := 0)
 
+  (* Maybe dvi_f *)
   val noFont   =  ~1
   val actFont  =  ref noFont
   fun sameFont  f   =  (f = !actFont)
@@ -68,10 +72,12 @@ struct
   fun addFont   f  =  (fontList  :=  f :: !fontList)
   fun definedFonts ()  =  !fontList
 
+  (* total_pages *)
   val pageNr  =  ref 0
   fun actPage  ()  =  !pageNr
   fun nextPage ()  =  inc pageNr
 
+  (* Maybe last_bop *)
   val oldPos  =  ref (~1)
   val newPos  =  ref (~1)
   fun prevPos ()  =  !oldPos
@@ -82,6 +88,7 @@ struct
       newPos := outPos ()
     )
 
+  (* curs *)
   val ActLevel  =  ref 0
   val MaxLevel  =  ref 0
   fun incLevel ()  =

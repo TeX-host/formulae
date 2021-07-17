@@ -1,3 +1,4 @@
+(* Translating atomic nodes into dvi *)
 signature SET_NODE  =
 sig
   type boxkind = BoxTypes.boxkind

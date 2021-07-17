@@ -1,3 +1,4 @@
+(* High level dvi routines which incorporate dvi compression *)
 signature DVI_CMD  =
 sig
   type fontNr = FontTypes.fontNr
@@ -27,9 +28,10 @@ struct
   open OutDvi
   open DviState
 
+
   fun FontDef f  =
-    if  isDefined f  then  ()
-                     else  (fontDef f;  addFont f)
+    if  isDefined f then  ()
+                    else  (fontDef f;  addFont f)
 
   fun Font f  =
     if  sameFont f  then  ()
@@ -63,7 +65,8 @@ struct
   fun Pre mag  =  ( initState ();  pre mag )
 
   fun Post mag  =
-    ( markPos ();
+    (
+      markPos ();
       post mag (actPage (), prevPos (), maxLevel ());
       fontDefs (definedFonts ());
       postpost (actPos ());
