@@ -1,60 +1,115 @@
+(* Routines which output dvi instructions.
+  refs:
+    1. tex.pdf      https://texdoc.org/serve/tex/0
+    2. DVI.format   http://mirrors.ctan.org/dviware/dvi2tty/DVI.format
+    3. dvi.html     https://web.archive.org/web/20070403030353/http://www.math.umd.edu/~asnowden/comp-cont/dvi.html#bop
+ *)
 signature OUT_DVI  =
 sig
   type charCode = BasicTypes.charCode
   type dist = BasicTypes.dist
   type fontNr = FontTypes.fontNr
 
+
+  (* DVI OpCode range [0, 255]
+    xref:
+      + [tex-p216#585]
+      + dvi.html#Table of Opcodes
+   *)
+  (* [  0, 132] SET_CHAR_i, SET_i, SET_RULE *)
   val setChar  :     charCode -> unit
-  val putChar  :     charCode -> unit
   val setRule  :  dist * dist -> unit
+  (* [133, 137] PUT_i, PUT_RULE *)
+  val putChar  :     charCode -> unit
   val putRule  :  dist * dist -> unit
-  val right    :         dist -> unit
-  val down     :         dist -> unit
-  val push     :         unit -> unit
-  val pop      :         unit -> unit
-  val font     :       fontNr -> unit
-  val fontDef  :       fontNr -> unit
-  val fontDefs :  fontNr list -> unit
+  (* [138, 140] (NOP,) BOP, EOP *)
   val bop      :    int * int -> unit
   val eop      :         unit -> unit
+  (* [141, 142] PUSH, POP *)
+  val push     :         unit -> unit
+  val pop      :         unit -> unit
+  (* [143, 146] RIGHT_i *)
+  val right    :         dist -> unit
+
+  (* [147, 156] W_i, X_i *)
+
+  (* [157, 160] DOWN_i *)
+  val down     :         dist -> unit
+
+  (* [161, 170] Y_i, Z_i *)
+
+  (* [171, 234] FONT_NUM_i *)
+  val font     :       fontNr -> unit
+
+  (* [235, 242] FONT_i, XXX_i *)
+
+  (* [243, 246] FONT_DEF_i *)
+  val fontDef  :       fontNr -> unit
+  val fontDefs :  fontNr list -> unit
+  (* [247, 249] PRE, POST, POST_POST *)
   val pre      :          int -> unit
   val post     :  int -> int * int * int -> unit
   val postpost :  int -> unit
   val tail     :  int -> unit
+
+  (* [250, 255] undefined *)
 end
 (*----------*)
 
-(* Routines which output dvi instructions.
-  refs:
-    1. tex.pdf   https://texdoc.org/serve/tex/0
-    2. DVI.format  http://mirrors.ctan.org/dviware/dvi2tty/DVI.format
- *)
 structure OutDvi: OUT_DVI  =
 struct
   open BasicTypes;  open FontTypes
   open OutHigh
   open Distance;  open FontVector
 
+  (* ---- help func ---- *)
   val instr    =  outNat1
   fun instrArg code arg  =  (instr code;  outNat1 arg)
 
+
+  (*
+    [  0, 128) => SET_CHAR_i
+    [128, 256) => SET1 i
+
+    Note: SET1 = 128
+   *)
   fun setChar ch  =  if  ch < 128  then  instr ch  else  instrArg 128 ch
-  val putChar  =  instrArg 133
+  val putChar  =  instrArg 133  (* PUT1 *)
 
   fun rule code (a, b)  =  (instr code;  outInt4 a;  outInt4 b)
-  val setRule  =  rule  132
-  val putRule  =  rule  137
-
-  val right   =  outInstrV  142
-  val down    =  outInstrV  156
-
-  val push    =  fn () => instr  141
-  val pop     =  fn () => instr  142
+  val setRule  =  rule 132  (* SET_RULE *)
+  val putRule  =  rule 137  (* PUT_RULE *)
 
 
+  (*
+    begin_of_page      1 ubyte     (BOP)
+    page_nr            4 sbytes    (page number)
+    do_be_do          36 bytes     (filler ????)
+    prev_page_offset   4 sbytes    (offset in file where previous page starts, -1 for none)
+
+    xref: DVI.format
+   *)
+  fun bop (pageNr, prevPos)  =
+    (
+      instr 139;  (* BOP *)
+      outInt4 pageNr;
+      outZero 36;
+      outInt4 prevPos
+    )
+  val eop   = fn () => instr 140  (* EOP *)
+  val push  = fn () => instr 141  (* PUSH *)
+  val pop   = fn () => instr 142  (* POP *)
+
+  (* auto Choose DviCmd_i for i in 0..4 *)
+  val right =  outInstrV 142      (* RIGHT_1 *)
+  val down  =  outInstrV 156      (* DOWN_1 *)
+
+
+  (* FNT_NUM_0 = 171 *)
   fun font f  =  instr (171 + f)
 
   (* [tex-p219#588] fnt_defi (1 <= i <= 4); k[i], c[4], s[4], d[4], a[1], l[1], n[a+l]
+
               1,2,3,4 ubytes    TeXfontnumber for FNTDEF1 .. FNTDEF4
                     4 ubytes    checksum
                     4 ubytes    scale
@@ -72,7 +127,7 @@ struct
       |   cmName SY  =  "cmsy"   |   cmName EX  =  "cmex"
       val fileName   =  cmName fam ^ Int.toString s
   in
-    instrArg 243 nr;
+    instrArg 243 nr; (* FNT_DEF1 *)
     outZero 4;
     outInt4 size;
     outInt4 size;
@@ -83,25 +138,8 @@ struct
   fun fontDefs    []     =  ()
   |   fontDefs (h :: t)  =  (fontDef h;  fontDefs t)
 
-  (*
-    begin_of_page      1 ubyte     (BOP)
-    page_nr            4 sbytes    (page number)
-    do_be_do          36 bytes     (filler ????)
-    prev_page_offset   4 sbytes    (offset in file where previous page starts, -1 for none)
 
-    xref: DVI.format
-   *)
-  fun bop (pageNr, prevPos)  =
-    (
-      instr 139;
-      outInt4 pageNr;
-      outZero 36;
-      outInt4 prevPos
-    )
-
-  val eop  =  fn () => instr 140
-
-
+  (* ---- help func for PRE ---- *)
   val version  =  fn () =>  outNat1 2
   (* [tex-p219#587] num/den = 25400000/473628672 *)
   val numDen   =  fn () => (outInt4 25400000;  outInt4 473628672)
@@ -144,15 +182,16 @@ struct
    *)
   fun post mag (pageNr, prevPos, maxLevel)  =
     (
-      instr 248; (* POST *)
+      instr 248;  (* POST *)
       outInt4 prevPos;
       numDen ();
       outInt4 mag;
-      outInt4 (distInt (10 * 72));   (* maxVSize *)
-      outInt4 (distInt ( 7 * 72));   (* maxWidth *)
+      outInt4 (distInt (10 * 72));  (* maxVSize *)
+      outInt4 (distInt ( 7 * 72));  (* maxWidth *)
       outNat2 maxLevel;
       outNat2 pageNr
     )
+
 
   (* output n 223 *)
   fun trailer 0  =  ()
@@ -168,12 +207,15 @@ struct
    *)
   fun postpost postPos  =
     (
-      instr 249; (* POST_POST *)
+      instr 249;  (* POST_POST *)
       outInt4 postPos;
       version ();
       trailer 3
     )
 
+  (* at least out one 233, then we have 4 233.
+    Make final ownPos is a multiple of four bytes
+   *)
   fun tail ownPos  =  trailer (4 - ownPos mod 4)
 
 end
