@@ -5,6 +5,10 @@ A re-implementation of TeX's formula layout in SML
 
 You can use those code in 2-clause BSD license: [reduce-algebra/reduce-algebra/contrib/boxdisplay/sml](https://github.com/reduce-algebra/reduce-algebra/blob/master/contrib/boxdisplay/sml/README)
 
+linked paper:
++ (Capsule Review) neuform.ps [A Functional Description of TeX's Formula Layout](https://www.rw.cdl.uni-saarland.de/people/heckmann/private/abstracts/neuform-review.html)
++ PDF version [neuform.pdf](https://people.eecs.berkeley.edu/~fateman/temp/neuform.pdf)
+
 
 ## Compile
 
