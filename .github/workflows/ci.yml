@@ -23,14 +23,13 @@ jobs:
           export PATH=/usr/local/smlnj/bin:"$PATH"
           echo "/usr/local/smlnj/bin" >> $GITHUB_PATH
           sml @SMLversion
-          # dvipdfmx
-          brew install --cask basictex
-          eval "$(/usr/libexec/path_helper)"
-          dvipdfmx --version
       - name: Gen DVI
         run: sml CI.sml
       - name: Gen PDF
         run: |
+          brew install --cask basictex
+          eval "$(/usr/libexec/path_helper)"
+          dvipdfmx --version
           dvipdfmx test1.dvi
           dvipdfmx test2.dvi
       - name: Upload DVI & PDF
