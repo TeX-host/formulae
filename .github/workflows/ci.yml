@@ -19,11 +19,11 @@ jobs:
         if: ${{ matrix.os == 'macos-latest' }}
         run: |
           # SML/NJ
-          brew install  smlnj
+          brew install --cask smlnj
           export PATH=/usr/local/smlnj/bin:"$PATH"
           sml @SMLversion
           # dvipdfmx
-          brew install  basictex
+          brew install --cask basictex
           eval "$(/usr/libexec/path_helper)"
           dvipdfmx --version
       - name: Gen DVI
