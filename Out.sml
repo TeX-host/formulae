@@ -60,6 +60,6 @@ struct
       + `Position.int: pos -> int`
           https://smlfamily.github.io/Basis/stream-io.html#SIG:STREAM_IO.pos:TY
    *)
-  fun outPos ()  = Position.toInt (StreamIO.filePosOut (getPosOut (getStream ())))
+  fun outPos () = (Position.toInt o StreamIO.filePosOut o getPosOut o getStream) ()
 
 end
