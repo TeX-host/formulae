@@ -18,9 +18,14 @@ jobs:
       - name: Install deps (macOS)
         if: ${{ matrix.os == 'macos-latest' }}
         run: |
-          brew install  basictex smlnj
-          dvipdfmx --version
+          # SML/NJ
+          brew install  smlnj
+          export PATH=/usr/local/smlnj/bin:"$PATH"
           sml @SMLversion
+          # dvipdfmx
+          brew install  basictex
+          eval "$(/usr/libexec/path_helper)"
+          dvipdfmx --version
       - name: Gen DVI
         run: sml CI.sml
       - name: Gen PDF
