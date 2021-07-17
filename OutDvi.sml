@@ -7,8 +7,8 @@
 signature OUT_DVI  =
 sig
   type charCode = BasicTypes.charCode
-  type dist = BasicTypes.dist
-  type fontNr = FontTypes.fontNr
+  type dist     = BasicTypes.dist
+  type fontNr   = FontTypes.fontNr
 
 
   (* DVI OpCode range [0, 255]
@@ -58,12 +58,14 @@ end
 
 structure OutDvi: OUT_DVI  =
 struct
-  open BasicTypes;  open FontTypes
+  open BasicTypes
+  open FontTypes
   open OutHigh
-  open Distance;  open FontVector
+  open Distance
+  open FontVector
 
   (* ---- help func ---- *)
-  val instr    =  outNat1
+  val instr  =  outNat1
   fun instrArg code arg  =  (instr code;  outNat1 arg)
 
 
@@ -91,7 +93,7 @@ struct
    *)
   fun bop (pageNr, prevPos)  =
     (
-      instr 139;  (* BOP *)
+      instr   139;  (* BOP *)
       outInt4 pageNr;
       outZero 36;
       outInt4 prevPos
@@ -127,11 +129,11 @@ struct
       |   cmName SY  =  "cmsy"   |   cmName EX  =  "cmex"
       val fileName   =  cmName fam ^ Int.toString s
   in
-    instrArg 243 nr; (* FNT_DEF1 *)
-    outZero 4;
-    outInt4 size;
-    outInt4 size;
-    outZero 1;
+    instrArg  243 nr; (* FNT_DEF1 *)
+    outZero   4;
+    outInt4   size;
+    outInt4   size;
+    outZero   1;
     outString fileName
   end
 
@@ -159,11 +161,11 @@ struct
    *)
   fun pre mag  =
     (
-      instr 247;  (* PRE *)
+      instr   247;  (* PRE *)
       version ();
-      numDen ();
+      numDen  ();
       outInt4 mag;
-      banner ()
+      banner  ()
     )
 
   (* [tex-p220#590] post; p[4], num[4], den[4], mag[4], l[4], u[4], s[2], t[2];
@@ -182,9 +184,9 @@ struct
    *)
   fun post mag (pageNr, prevPos, maxLevel)  =
     (
-      instr 248;  (* POST *)
+      instr   248;  (* POST *)
       outInt4 prevPos;
-      numDen ();
+      numDen  ();
       outInt4 mag;
       outInt4 (distInt (10 * 72));  (* maxVSize *)
       outInt4 (distInt ( 7 * 72));  (* maxWidth *)
@@ -207,7 +209,7 @@ struct
    *)
   fun postpost postPos  =
     (
-      instr 249;  (* POST_POST *)
+      instr   249;  (* POST_POST *)
       outInt4 postPos;
       version ();
       trailer 3
