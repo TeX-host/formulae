@@ -21,6 +21,7 @@ jobs:
           # SML/NJ
           brew install --cask smlnj
           export PATH=/usr/local/smlnj/bin:"$PATH"
+          echo "/usr/local/smlnj/bin" >> $GITHUB_PATH
           sml @SMLversion
           # dvipdfmx
           brew install --cask basictex
