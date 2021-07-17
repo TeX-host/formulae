@@ -1,17 +1,21 @@
+(* Output routines for strings and integers. *)
 signature OUT_HIGH  =
 sig
+  (* output one char *)
   val outChar    :  char   -> unit
+  (* output strigns *)
   val outStr     :  string -> unit
   val outString  :  string -> unit
+  (* output int32 to 4 bytes *)
   val outNat1    :  int    -> unit
   val outNat2    :  int    -> unit
   val outInt4    :  int    -> unit
+  (* other special output help func *)
   val outZero    :  int    -> unit
   val outInstrV  :  int -> int -> unit
 end
 (*----------*)
 
-(* Output routines for strings and integers. *)
 structure OutHigh: OUT_HIGH  =
 struct
   open Powers2
@@ -61,6 +65,33 @@ struct
   end
 
 
+  (* TODO: check if n < 0 is correct
+
+    python ref code
+    ```python
+    # convert int32 to 4 bytes and back.
+    def dviout(x):
+        b3 = (x >> 24) & 255
+        b2 = (x >> 16) & 255
+        b1 = (x >>  8) & 255
+        b0 = (x >>  0) & 255
+        print(f"{b3}, {b2}, {b1}, {b0}")
+        # 4 bytes to unsigned int32
+        n = b3
+        n = (n << 8) + b2
+        n = (n << 8) + b1
+        n = (n << 8) + b0
+        print(f"unsigned {n}")
+        # 4 bytes to signed int32
+        s = b3
+        if (s & 0x80):
+            s = s - 0x100
+        s = (s << 8) + b2
+        s = (s << 8) + b1
+        s = (s << 8) + b0
+        print(f"  signed {s}")
+    ```
+   *)
   fun makeNat twoI n  = if  n>= 0  then  n  else  n + twoI
 
   (* Auto choose a `outNat_i/outInt_i` function and
