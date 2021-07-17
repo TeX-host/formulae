@@ -65,7 +65,7 @@ struct
   end
 
 
-  (* TODO: check if n < 0 is correct
+  (* xref: [tex-p225#610]
 
     python ref code
     ```python
@@ -83,12 +83,28 @@ struct
         n = (n << 8) + b0
         print(f"unsigned {n}")
         # 4 bytes to signed int32
-        s = b3
-        if (s & 0x80):
-            s = s - 0x100
-        s = (s << 8) + b2
-        s = (s << 8) + b1
-        s = (s << 8) + b0
+        if b3:
+            s = b3
+            if (s & 0x80):
+                s = s - 0x100
+            s = (s << 8) + b2
+            s = (s << 8) + b1
+            s = (s << 8) + b0
+        elif b2:
+            s = b2
+            if (s & 0x80):
+                s = s - 0x100
+            s = (s << 8) + b1
+            s = (s << 8) + b0
+        elif b1:
+            s = b1
+            if (s & 0x80):
+                s = s - 0x100
+            s = (s << 8) + b0
+        else:
+            s = b0
+            if (s & 0x80):
+                s = s - 0x100
         print(f"  signed {s}")
     ```
    *)
