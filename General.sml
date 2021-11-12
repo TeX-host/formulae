@@ -23,6 +23,7 @@ structure General: GENERAL  =
 struct
 (** Since functions such as `fold' and `exists' depend on the version,
    I program everything from the basic constructors. *)
+  open Option; (* map *)
 
   (** `val round : real -> int`
     https://smlfamily.github.io/Basis/real.html#SIG:REAL.round:VAL:SPEC
