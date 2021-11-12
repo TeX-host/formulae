@@ -3,7 +3,7 @@ sig
   type dist = BasicTypes.dist
   type penalty = BasicTypes.penalty
 
-  val delimiterFactor:    int		(* in units of 1000 *)
+  val delimiterFactor:    int        (* in units of 1000 *)
   val delimiterShortfall: dist
   val nullDelimiterSpace: dist
   val scriptSpace:        dist

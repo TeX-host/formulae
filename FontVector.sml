@@ -25,7 +25,7 @@ struct
 
   fun prod (xl, yl)  =  List.concat (map (fn x => map (fn y => (x, y)) yl) xl)
 
-  fun getNum x xl  =	(* index in list, starting with 1 *)
+  fun getNum x xl  =    (* index in list, starting with 1 *)
   let fun getNum' _    []     =  NONE
       |   getNum' n (h :: t)  =  if  x = h  then  SOME n
                                             else  getNum' (n + 1) t
