@@ -1,6 +1,6 @@
 (*
 *)
-open Input
+open Input (* sum *)
 
 fun test f x  =  (f x) handle (ex as BasicTypes.NotImplemented s)
               => (print "        ---> "; print s; print " <---"; raise ex)

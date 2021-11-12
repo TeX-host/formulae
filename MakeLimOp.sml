@@ -12,7 +12,8 @@ end  (* signature MAKE_LIM_OP *)
 structure MakeLimOp: MAKE_LIM_OP  =
 struct
   open BasicTypes;  open BoxTypes
-  open General;  open Distance;  open StyleParams
+  open General; (* max, maximum0, optFold *)
+  open Distance;  open StyleParams
   open BasicBox;  open MakeVBox;  open BoxPack
 
   fun LimDist distFun posFun st size  =  max (distFun st, posFun st - size)

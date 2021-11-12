@@ -14,7 +14,8 @@ end
 structure Distance: DISTANCE  =
 struct
   open BasicTypes
-  open Powers2;  open General
+  open Powers2;
+
   val zero =  0
   val one  =  two16       (* 2^16 *)
   fun half  d  =  d div 2

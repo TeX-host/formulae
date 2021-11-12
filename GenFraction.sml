@@ -13,7 +13,8 @@ end  (* signature GEN_FRACTION *)
 structure GenFraction: GEN_FRACTION  =
 struct
   open BasicTypes;  open BoxTypes
-  open General;  open Distance;  open StyleParams
+  open General; (* max, optVal *)
+  open Distance;  open StyleParams
   open Delimiter;  open BoxPack
   open MakeAtop;  open MakeFract
 

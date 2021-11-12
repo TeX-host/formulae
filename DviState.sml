@@ -40,7 +40,7 @@ structure DviState: DVI_STATE  =
 struct
   open BasicTypes
   open FontTypes
-  open General
+  open General; (* contains *)
   open Out
 
 

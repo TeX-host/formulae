@@ -14,7 +14,7 @@ end
 structure FontVector: FONT_VECTOR  =
 struct
   open BasicTypes;  open FontTypes
-  open General;  open Size;  open LoadFont
+  open Size;  open LoadFont
 (* Idea: famFont will compute a font number from family and style.
    This number is used to look up the font in fontVector.
    Vector fontVector is built from the repetition free list famSizePairs

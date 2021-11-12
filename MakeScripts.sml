@@ -21,7 +21,9 @@ structure MakeScripts: MAKE_SCRIPTS  =
 struct
   open BasicTypes;  open BoxTypes
   open StyleParams;  open Const
-  open Distance;  open General;  open ChangeStyle
+  open Distance;
+  open General; (* max, maximum0 *)
+  open ChangeStyle
   open BasicBox;  open MakeVBox;  open NodeDim
 
   fun almost_xHeight st  =  (xHeight st * 4) div 5

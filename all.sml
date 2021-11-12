@@ -1,6 +1,9 @@
 (*
 *)
+
+(** Only open stdlibs *)
 U "General";
+
 U "Powers2";
 U "BasicTypes";
 U "Distance";

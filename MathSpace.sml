@@ -12,7 +12,8 @@ end  (* signature MATH_SPACE *)
 structure MathSpace: MATH_SPACE  =
 struct
   open BasicTypes;  open BoxTypes;  open MathTypes
-  open General;  open StyleParams
+  open General; (* optFold *)
+  open StyleParams
 
   fun translate (SKern s)  =  Kern s
   |   translate (SGlue g)  =  Glue g

@@ -10,7 +10,7 @@ end  (* signature CHANGE_KIND *)
 structure ChangeKind: CHANGE_KIND  =
 struct
   open MathTypes;  open IListTypes
-  open General
+  open General; (* contains *)
 
   val rec listKind  =
   fn  []                  =>   None

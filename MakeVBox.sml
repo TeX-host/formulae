@@ -38,7 +38,8 @@ end  (* signature MAKE_VBOX *)
 structure MakeVBox: MAKE_VBOX  =
 struct
   open BasicTypes;  open BoxTypes
-  open General;  open BasicBox;  open NodeDim;  open NodeListDim
+  open General; (* max, revAppend *)
+  open BasicBox;  open NodeDim;  open NodeListDim
 
   fun makeVBox  w  node  upList  dnList  =    (* node: Box0 or Rule! *)
   let val h  =  vlistVsize upList + height node
