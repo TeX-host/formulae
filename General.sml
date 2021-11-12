@@ -1,4 +1,4 @@
-signature GENERAL  =
+signature GENERAL =
 sig
   (* Sum the entire list *)
   val sum:      int list -> int
@@ -15,21 +15,21 @@ sig
   val optVal:     'a -> 'a option -> 'a
   val optMap:     ('a -> 'b) -> 'a option -> 'b option
   val optFold:    'b -> ('a -> 'b) -> 'a option -> 'b
+
   val lookUp:     ''a -> (''a * 'b) list -> 'b option
-end  (* signature GENERAL *)
-(*----------*)
+end (* signature GENERAL *)
 
 structure General: GENERAL  =
 struct
-(* Since functions such as `fold' and `exists' depend on the version,
+(** Since functions such as `fold' and `exists' depend on the version,
    I program everything from the basic constructors. *)
 
-  (* `val round : real -> int`
+  (** `val round : real -> int`
     https://smlfamily.github.io/Basis/real.html#SIG:REAL.round:VAL:SPEC
    *)
   (* fun round r  =  trunc (r + 0.5)         (* "truncate" in other versions *)  *)
 
-  (* `val foldr : ('a * 'b -> 'b) -> 'b -> 'a list -> 'b`
+  (** `val foldr : ('a * 'b -> 'b) -> 'b -> 'a list -> 'b`
     https://smlfamily.github.io/Basis/list.html#SIG:LIST.foldr:VAL:SPEC
    *)
   (* val fold = fn : ('a * 'b -> 'b) -> 'b -> 'a list -> 'b *)
@@ -50,7 +50,7 @@ struct
   |   revAppend (x :: xl) yl  =  revAppend xl (x :: yl) *)
   fun revAppend hd tl = (rev hd) @ tl;
 
-  (* `val map : ('a -> 'b) -> 'a option -> 'b option`
+  (** `val map : ('a -> 'b) -> 'a option -> 'b option`
     https://smlfamily.github.io/Basis/option.html#SIG:OPTION.map:VAL:SPEC
    *)
   val optMap = map;
@@ -61,11 +61,11 @@ struct
   (* fun optVal y  =  optFold y (fn x => x) *)
   fun optVal a opt = getOpt (opt, a);
 
-  (* [NOT_USED] Search x in tuple list [(x, y), ...] and return y *)
+  (** [NOT_USED] Search x in tuple list [(x, y), ...] and return y *)
   fun lookUp x  =
   let fun searchx          []        =  NONE
       |   searchx ((x', y) :: rest)  =  if  x = x'  then  SOME y
                                         else  searchx rest
   in  searchx  end
 
-end  (* structure General *)
+end (* structure General *)
