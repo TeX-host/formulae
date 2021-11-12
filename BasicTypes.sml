@@ -8,16 +8,18 @@ struct
 
   (* These numbers are only needed for vector indexing. *)
   datatype family = RM | MI | SY | EX
-  fun famNr RM = 0
-    | famNr MI = 1
-    | famNr SY = 2
-    | famNr EX = 3
+  (* Old Name: `famNr` *)
+  fun fontFamilyIdx RM = 0
+    | fontFamilyIdx MI = 1
+    | fontFamilyIdx SY = 2
+    | fontFamilyIdx EX = 3
 
   datatype style  = D | T | S | SS
-  fun styleNr D  = 0
-    | styleNr T  = 1
-    | styleNr S  = 2
-    | styleNr SS = 3
+  (* Old Name: `styleNr` *)
+  fun fontStyleIdx D  = 0
+    | fontStyleIdx T  = 1
+    | fontStyleIdx S  = 2
+    | fontStyleIdx SS = 3
 
   exception NotImplemented of string
   exception CannotHappen

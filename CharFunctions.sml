@@ -19,6 +19,6 @@ struct
   open FontVector;
   open CharInfo
 
-  fun fontNumber st fam  =  sub (fontNumberVector, 4 * famNr fam + styleNr st)
+  fun fontNumber st fam  =  sub (fontNumberVector, 4 * fontFamilyIdx fam + fontStyleIdx st)
   fun larger  (pair as (_, ch))  =  optVal ch (charLarger pair)
 end  (* structure CharFunctions *)
