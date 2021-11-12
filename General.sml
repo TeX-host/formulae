@@ -1,22 +1,22 @@
 signature GENERAL =
 sig
   (* Sum the entire list *)
-  val sum:      int list -> int
+  val sum       : int list -> int
   (* Find the larger of two int *)
-  val max:      int * int -> int
+  val max       : int * int -> int
   (* Find max number in [0, list...] *)
-  val maximum0: int list -> int
+  val maximum0  : int list -> int
 
   (* Check if [list] contains x *)
-  val contains:   ''a list -> ''a -> bool
+  val contains  : ''a list -> ''a -> bool
   (* rev a @ b *)
-  val revAppend:  'a list -> 'a list -> 'a list
+  val revAppend : 'a list -> 'a list -> 'a list
 
-  val optVal:     'a -> 'a option -> 'a
-  val optMap:     ('a -> 'b) -> 'a option -> 'b option
-  val optFold:    'b -> ('a -> 'b) -> 'a option -> 'b
+  val optVal    : 'a -> 'a option -> 'a
+  val optMap    : ('a -> 'b) -> 'a option -> 'b option
+  val optFold   : 'b -> ('a -> 'b) -> 'a option -> 'b
 
-  val lookUp:     ''a -> (''a * 'b) list -> 'b option
+  val lookUp    : ''a -> (''a * 'b) list -> 'b option
 end (* signature GENERAL *)
 
 structure General: GENERAL  =
