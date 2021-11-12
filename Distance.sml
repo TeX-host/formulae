@@ -14,7 +14,7 @@ end
 structure Distance: DISTANCE  =
 struct
   open BasicTypes
-  open Powers2;
+  open Powers2; (* two16 *)
 
   val zero =  0
   val one  =  two16       (* 2^16 *)

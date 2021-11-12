@@ -18,7 +18,8 @@ end
 
 structure OutHigh: OUT_HIGH  =
 struct
-  open Powers2
+  open Powers2; (* two6, two7, two8, two15,
+                   two16, two23, two24, two29 *)
   open Out
 
   val byteSmall =  Word8.fromInt        (* : int  -> byte *)

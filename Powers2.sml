@@ -9,7 +9,6 @@ sig
   val two24 :  int
   val two29 :  int
 end  (* signature POWERS2 *)
-(*----------*)
 
 structure Powers2: POWERS2  =
 struct
