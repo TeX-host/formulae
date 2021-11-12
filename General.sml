@@ -7,6 +7,7 @@ sig
   (* Find max number in [0, list...] *)
   val maximum0: int list -> int
 
+  (* Check if [list] contains x *)
   val contains:   ''a list -> ''a -> bool
   val revAppend:  'a list -> 'a list -> 'a list      (* rev a @ b *)
   val optVal:     'a -> 'a option -> 'a
@@ -38,9 +39,8 @@ struct
   fun max(x, y) = if x > y then x else y
   val maximum0  = foldr  max   0
 
-  fun contains list x  =  let fun f    []     =  false
-                              |   f (h :: t)  =  (h = x)  orelse  f t
-                          in  f list  end
+  fun contains    []    x = false
+    | contains (h :: t) x = x = h orelse contains t x;
 
   fun revAppend    []     yl  =  yl
   |   revAppend (x :: xl) yl  =  revAppend xl (x :: yl)
