@@ -58,7 +58,7 @@ end
 
 structure OutDvi: OUT_DVI  =
 struct
-  open BasicTypes
+  open BasicTypes; (* RM, MI, SY, EX *)
   open FontTypes
   open OutHigh
   open Distance
@@ -125,8 +125,10 @@ struct
   fun fontDef nr   =
   let val (fam, s)  =  Vector.sub (famSizeVector, nr)
       val size  =  distInt s
-      fun cmName RM  =  "cmr"    |   cmName MI  =  "cmmi"
-      |   cmName SY  =  "cmsy"   |   cmName EX  =  "cmex"
+      fun cmName RM  =  "cmr"
+        | cmName MI  =  "cmmi"
+        | cmName SY  =  "cmsy"
+        | cmName EX  =  "cmex"
       val fileName   =  cmName fam ^ Int.toString s
   in
     instrArg  243 nr; (* FNT_DEF1 *)

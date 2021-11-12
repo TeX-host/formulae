@@ -23,7 +23,8 @@ end
 
 structure Input: INPUT  =
 struct
-  open BasicTypes;  open MathTypes
+  open BasicTypes; (* RM, MI, SY, EX; D, T, S, SS *)
+  open MathTypes
   open Char
 
   val sumsym    =  MathChar (Op,    EX,  80)

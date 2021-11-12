@@ -10,11 +10,14 @@ end
 
 structure LoadFont: LOAD_FONT  =
 struct
-  open BasicTypes;  open FontTypes
+  open BasicTypes; (* RM, MI, SY, EX *)
+  open FontTypes;
   open TextIO;  open Distance
 
-  fun famName RM = "RM"  |  famName MI = "MI"
-  |   famName SY = "SY"  |  famName EX = "EX"
+  fun famName RM = "RM"
+    | famName MI = "MI"
+    | famName SY = "SY"
+    | famName EX = "EX"
 
   fun sizeExt s  =  Int.toString (s div 10) ^ Int.toString (s mod 10)
 

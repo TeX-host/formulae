@@ -13,8 +13,8 @@ end  (* signature CHAR_FUNCTIONS *)
 structure CharFunctions: CHAR_FUNCTIONS  =
 struct
   open Vector
-  open BasicTypes;
-  open FontTypes
+  open BasicTypes; (* fontFamilyIdx, fontStyleIdx *)
+  open FontTypes;
   open General; (* optVal *)
   open FontVector;
   open CharInfo

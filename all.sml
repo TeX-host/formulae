@@ -3,11 +3,11 @@
 
 (** No import *)
 U "Powers2";
+U "BasicTypes";
 
 (** Only open stdlibs *)
 U "General";
 
-U "BasicTypes";
 U "Distance";
 U "Size";
 U "FontTypes";
