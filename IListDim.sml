@@ -11,7 +11,8 @@ end  (* signature ILIST_DIM *)
 structure IListDim: ILIST_DIM  =
 struct
   open BasicTypes;  open BoxTypes;  open IListTypes
-  open Distance;  open NodeListDim
+  open Distance; (* ZERO *)
+  open NodeListDim
   open General; (* max *)
 
   fun  ilistDim (f: hlist -> dist)  =

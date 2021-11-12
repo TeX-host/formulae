@@ -29,7 +29,8 @@ structure MathTranslate: MATH_TRANSLATE  =
 struct
   open BasicTypes;  open BoxTypes;  open MathTypes;  open IListTypes
   open General; (* optMap *)
-  open Distance;  open BoxPack;  open AxisCenter
+  open Distance; (* ZERO *)
+  open BoxPack;  open AxisCenter
   open Kind;  open ChangeStyle
   open MakeChar;  open Accent;  open Radical;  open Boundaries
   open MakeLine;  open GenFraction;  open MakeScripts;  open MakeLimOp

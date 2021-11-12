@@ -20,7 +20,8 @@ end
 structure SetNode: SET_NODE  =
 struct
   open BasicTypes;  open BoxTypes
-  open Distance;  open CharInfo
+  open Distance; (* ZERO, realMult *)
+  open CharInfo
   open OutHigh;  open DviCmd
 
   (* Invariant for horizontal stuff:

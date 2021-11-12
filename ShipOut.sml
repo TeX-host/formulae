@@ -9,7 +9,7 @@ struct
   open Out
   open DviCmd
   open SetBox
-  open Distance
+  open Distance; (* distInt *)
 
   val mag       = 2000
   val lineSkip  = distInt 50

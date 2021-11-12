@@ -31,7 +31,8 @@ end  (* signature GLUE_CALCULATION *)
 structure GlueCalculation: GLUE_CALCULATION  =
 struct
   open BasicTypes;  open BoxTypes
-  open Distance;  open BasicBox
+  open Distance; (* ZERO *)
+  open BasicBox
 
   fun extractGlue  access  =
   let fun extr []              =  []

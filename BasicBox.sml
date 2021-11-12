@@ -20,7 +20,7 @@ end  (* signature BASIC_BOX *)
 structure BasicBox: BASIC_BOX  =
 struct
   open BasicTypes;  open BoxTypes
-  open Distance
+  open Distance; (* ZERO, ONE *)
 
   fun rule h w  =  Rule {height = h, depth = ZERO, width = w}
 

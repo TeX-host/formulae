@@ -21,7 +21,7 @@ structure MakeScripts: MAKE_SCRIPTS  =
 struct
   open BasicTypes;  open BoxTypes
   open StyleParams;  open Const
-  open Distance;
+  open Distance; (* ZERO *)
   open General; (* max, maximum0 *)
   open ChangeStyle
   open BasicBox;  open MakeVBox;  open NodeDim

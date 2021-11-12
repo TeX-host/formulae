@@ -61,7 +61,7 @@ struct
   open BasicTypes; (* RM, MI, SY, EX *)
   open FontTypes
   open OutHigh
-  open Distance
+  open Distance; (* distInt *)
   open FontVector
 
   (* ---- help func ---- *)

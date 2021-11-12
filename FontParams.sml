@@ -36,7 +36,7 @@ end  (* signature FONT_PARAMS *)
 structure FontParams: FONT_PARAMS  =
 struct
   open BasicTypes;  open Size
-  open Distance
+  open Distance; (* ONE, distInt, distRat, distReal *)
 
   (* Most parameters are from the symbol fonts
      which exist in sizes 5 through 10.

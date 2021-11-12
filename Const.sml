@@ -16,7 +16,7 @@ end  (* signature CONST *)
 structure Const: CONST  =
 struct
   open BasicTypes
-  open Distance
+  open Distance; (* distReal *)
   val delimiterFactor      =  901               (* units of 1000 *)
   val delimiterShortfall   =  distReal 5.0      (* 5.0 pt *)
   val nullDelimiterSpace   =  distReal 1.2      (* 1.2 pt *)

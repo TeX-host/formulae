@@ -11,7 +11,8 @@ end  (* signature MAKE_ATOP *)
 structure MakeAtop: MAKE_ATOP  =
 struct
   open BasicTypes;  open BoxTypes
-  open Distance;  open StyleParams;  open MakeVBox
+  open Distance; (* half *)
+  open StyleParams;  open MakeVBox
 
   fun atopMinDist D   =  7 * RuleThickness D
   |   atopMinDist st  =  3 * RuleThickness st

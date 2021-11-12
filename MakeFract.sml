@@ -12,7 +12,8 @@ end  (* signature MAKE_FRACT *)
 structure MakeFract: MAKE_FRACT  =
 struct
   open BasicTypes;  open BoxTypes
-  open Distance;  open StyleParams;  open MakeVBox
+  open Distance; (* half *)
+  open StyleParams;  open MakeVBox
   open General; (* max *)
 
   fun fractMinDist D halfTh  =  6 * halfTh

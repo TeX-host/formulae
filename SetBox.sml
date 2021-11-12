@@ -17,7 +17,6 @@ end
 structure SetBox: SET_BOX  =
 struct
   open BasicTypes;  open BoxTypes
-  open Distance
   open OutHigh;  open DviCmd;  open SetNode
 
   (* Invariant for horizontal stuff:

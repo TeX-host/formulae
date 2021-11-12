@@ -16,7 +16,8 @@ end  (* signature NODE_DIM *)
 structure NodeDim: NODE_DIM  =
 struct
   open BasicTypes;  open BoxTypes
-  open CharInfo;  open Distance
+  open CharInfo;
+  open Distance; (* ZERO *)
 
   fun width (Char info)                   =  charWidth info
   |   width (Box  (_, {width = w, ...}))  =  w

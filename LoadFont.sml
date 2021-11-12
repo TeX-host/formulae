@@ -12,7 +12,8 @@ structure LoadFont: LOAD_FONT  =
 struct
   open BasicTypes; (* RM, MI, SY, EX *)
   open FontTypes;
-  open TextIO;  open Distance
+  open TextIO;
+  open Distance; (* ZERO, realMult, distInt *)
 
   fun famName RM = "RM"
     | famName MI = "MI"

@@ -14,7 +14,8 @@ structure GenFraction: GEN_FRACTION  =
 struct
   open BasicTypes;  open BoxTypes
   open General; (* max, optVal *)
-  open Distance;  open StyleParams
+  open Distance; (* ZERO *)
+  open StyleParams
   open Delimiter;  open BoxPack
   open MakeAtop;  open MakeFract
 
