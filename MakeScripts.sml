@@ -75,7 +75,7 @@ struct
     (fn NONE         =>
         (fn NONE         =>  extend itCorr nucNode
          |  SOME subBox  =>  makeSub st isChar nucNode subBox)
-     |  SOME supBox  =>  
+     |  SOME supBox  =>
         (fn NONE         =>  makeSup st cr isChar itCorr nucNode supBox
          |  SOME subBox  =>  makeSupSub st cr isChar itCorr
                                         nucNode supBox subBox)

@@ -39,7 +39,7 @@ struct
 
   fun optFold y f  =  fn NONE    =>  y
                       |  SOME x  =>  f x
- 
+
   fun optVal y  =  optFold y (fn x => x)
 
   fun lookUp x  =

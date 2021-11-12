@@ -4,7 +4,7 @@ sig
   type dist = BasicTypes.dist
   type hlist = BoxTypes.hlist
   type box = BoxTypes.box
-  
+
   val hlistGlue:  dim -> dist -> hlist -> box
   (* Arguments:
      1. desired width, plus (natural) height, plus (natural) depth
