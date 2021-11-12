@@ -22,13 +22,17 @@ struct
   *)
   (* fun round r  =  trunc (r + 0.5)         (* "truncate" in other versions *)  *)
 
-  fun fold g c  =  let fun f    []     =  c
+  (* `val foldr : ('a * 'b -> 'b) -> 'b -> 'a list -> 'b`
+    https://smlfamily.github.io/Basis/list.html#SIG:LIST.foldr:VAL:SPEC
+   *)
+  (* val fold = fn : ('a * 'b -> 'b) -> 'b -> 'a list -> 'b *)
+  (* fun fold g c  =  let fun f    []     =  c
                        |   f (h :: t)  =  g (h, f t)
-                   in  f  end
+                   in  f  end *)
 
-  val sum     =  fold (op +) 0
+  val sum     =  foldr (op +) 0
   fun max(x,y) = if x > y then x else y
-  val Max     =  fold  max   0
+  val Max     =  foldr  max   0
 
   fun contains list x  =  let fun f    []     =  false
                               |   f (h :: t)  =  (h = x)  orelse  f t
