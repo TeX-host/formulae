@@ -41,8 +41,13 @@ struct
   fun max(x, y) = if x > y then x else y
   val maximum0  = foldr  max   0
 
+  (* fun contains list x  =  let fun f    []     =  false
+                              |   f (h :: t)  =  (h = x)  orelse  f t
+                          in  f list  end *)
   fun contains    []    x = false
     | contains (h :: t) x = x = h orelse contains t x;
+  (* fun revAppend    []     yl  =  yl
+  |   revAppend (x :: xl) yl  =  revAppend xl (x :: yl) *)
   fun revAppend hd tl = (rev hd) @ tl;
 
   (* `val map : ('a -> 'b) -> 'a option -> 'b option`
