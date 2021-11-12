@@ -56,6 +56,7 @@ struct
   (* fun optVal y  =  optFold y (fn x => x) *)
   fun optVal a opt = getOpt (opt, a);
 
+  (* [NOT_USED] Search x in tuple list [(x, y), ...] and return y *)
   fun lookUp x  =
   let fun searchx          []        =  NONE
       |   searchx ((x', y) :: rest)  =  if  x = x'  then  SOME y
