@@ -33,10 +33,10 @@ struct
       if  isChar  then  zero  else  dnuc + SubDrop (script st)
 
   fun SupPos st cr isChar hnuc dsup  =
-      Max [SupPos0 st isChar hnuc,  Sup cr st,    dsup + xHeight st div 4]
+      maximum0 [SupPos0 st isChar hnuc,  Sup cr st,    dsup + xHeight st div 4]
 
   fun SubAlonePos st isChar dnuc hsub  =
-      Max [SubPos0 st isChar dnuc,  SubAlone st,  hsub - almost_xHeight st]
+      maximum0 [SubPos0 st isChar dnuc,  SubAlone st,  hsub - almost_xHeight st]
 
   fun SubWithSupPos st isChar dnuc  =
       max (SubPos0 st isChar dnuc,  SubWithSup st)

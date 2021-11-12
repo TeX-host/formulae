@@ -1,14 +1,18 @@
 signature GENERAL  =
 sig
-  val sum: int list -> int
-  val max: int * int -> int
-  val Max: int list -> int
-  val contains:  ''a list -> ''a -> bool
+  (* Sum the entire list *)
+  val sum:      int list -> int
+  (* Find the larger of two int *)
+  val max:      int * int -> int
+  (* Find max number in [0, list...] *)
+  val maximum0: int list -> int
+
+  val contains:   ''a list -> ''a -> bool
   val revAppend:  'a list -> 'a list -> 'a list      (* rev a @ b *)
   val optVal:     'a -> 'a option -> 'a
   val optMap:     ('a -> 'b) -> 'a option -> 'b option
   val optFold:    'b -> ('a -> 'b) -> 'a option -> 'b
-  val lookUp:       ''a -> (''a * 'b) list -> 'b option
+  val lookUp:     ''a -> (''a * 'b) list -> 'b option
 end  (* signature GENERAL *)
 (*----------*)
 
@@ -19,7 +23,7 @@ struct
 
   (* `val round : real -> int`
     https://smlfamily.github.io/Basis/real.html#SIG:REAL.round:VAL:SPEC
-  *)
+   *)
   (* fun round r  =  trunc (r + 0.5)         (* "truncate" in other versions *)  *)
 
   (* `val foldr : ('a * 'b -> 'b) -> 'b -> 'a list -> 'b`
@@ -30,9 +34,9 @@ struct
                        |   f (h :: t)  =  g (h, f t)
                    in  f  end *)
 
-  val sum     =  foldr (op +) 0
-  fun max(x,y) = if x > y then x else y
-  val Max     =  foldr  max   0
+  val sum       = foldr (op +) 0
+  fun max(x, y) = if x > y then x else y
+  val maximum0  = foldr  max   0
 
   fun contains list x  =  let fun f    []     =  false
                               |   f (h :: t)  =  (h = x)  orelse  f t

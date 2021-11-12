@@ -20,8 +20,8 @@ struct
   open NodeDim
   fun compute f g nl  =  f (map g nl)
   val hlistWidth   =  compute sum width
-  val hlistHeight  =  compute Max height
-  val hlistDepth   =  compute Max depth
-  val vlistWidth   =  compute Max vwidth
+  val hlistHeight  =  compute maximum0 height
+  val hlistDepth   =  compute maximum0 depth
+  val vlistWidth   =  compute maximum0 vwidth
   val vlistVsize   =  compute sum vsize
 end  (* structure NodeListDim *)

@@ -31,7 +31,7 @@ struct
   fun makeLimOp st itCorr nucNode supOptBox subOptBox  =
   let val nucBox  =  boxList (extend itCorr nucNode)
       val optWidth  =  optFold zero (#width: box -> dist)
-      val w  =  Max [optWidth supOptBox, #width nucBox, optWidth subOptBox]
+      val w  =  maximum0 [optWidth supOptBox, #width nucBox, optWidth subOptBox]
       val pad  =  BigOpPadding st
       val shift  =  half itCorr
       val supList  =  SupList st   shift  w  pad  supOptBox
