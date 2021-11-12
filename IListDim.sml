@@ -15,7 +15,7 @@ struct
   open General; (* max *)
 
   fun  ilistDim (f: hlist -> dist)  =
-       fn []                     =>  zero
+       fn []                     =>  ZERO
        |  INoad (_, hl) :: rest  =>  max (f hl, ilistDim f rest)
        |  _             :: rest  =>             ilistDim f rest
 

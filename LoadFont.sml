@@ -68,7 +68,7 @@ struct
       | code  =>  ({width  = w,  height = h,  depth = d,  itCorr = i,
                     larger = l,  varChar  =  varChar t b r},
                    code = #"E")
-  in  collect zero zero zero zero NONE NONE NONE NONE  end
+  in  collect ZERO ZERO ZERO ZERO NONE NONE NONE NONE  end
 
   fun getList size file  =
   let val _  =  inputLine file    (* skips remainder of C line *)

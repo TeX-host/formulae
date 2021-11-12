@@ -22,11 +22,11 @@ struct
   open BasicTypes;  open BoxTypes
   open Distance
 
-  fun rule h w  =  Rule {height = h, depth = zero, width = w}
+  fun rule h w  =  Rule {height = h, depth = ZERO, width = w}
 
   val ssGlue:  glueSpec   =
-  let val fil1  =  (one, fil)
-  in  {size = zero,  stretch = fil1,  shrink = fil1}  end
+  let val fil1  =  (ONE, fil)
+  in  {size = ZERO,  stretch = fil1,  shrink = fil1}  end
 
   (* makebox: boxkind -> dim -> node list -> box
         constructs a box of given kind with given dimensions and content *)
@@ -44,10 +44,10 @@ struct
   val vbox  =  makebox VBox
 
   val emptyBox : box  =
-      hbox  {width = zero,  depth = zero,  height = zero}  []
+      hbox  {width = ZERO,  depth = ZERO,  height = ZERO}  []
 
   fun extend dist node  =
-  let val extension  =  if  dist = zero  then  []  else  [Kern dist]
+  let val extension  =  if  dist = ZERO  then  []  else  [Kern dist]
   in  node :: extension  end
 
 end  (* structure BasicBox *)

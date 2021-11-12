@@ -48,7 +48,7 @@ struct
   (* Glue *)
 
   fun glueMult (r, ord) (d, ord')  =
-  if  ord = ord'  then  realMult (r, d)  else  zero
+  if  ord = ord'  then  realMult (r, d)  else  ZERO
 
   fun glueSize natural ({size, ...}: glueSpec)  =  size
   |   glueSize (stretching factor) {size, stretch, ...}  =

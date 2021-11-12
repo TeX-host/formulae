@@ -50,7 +50,7 @@ struct
   in  boxList (IListToHList st false il')  end
 
   and doNucleus st _ isOp [MathChar (_, fam, ch)]  =  makeNucChar st isOp fam ch
-  |   doNucleus st cr _    ml  =  (Box0 (cleanBox st cr ml), zero, false)
+  |   doNucleus st cr _    ml  =  (Box0 (cleanBox st cr ml), ZERO, false)
 
   and doGenScripts st cr limits isOp {nucleus, supOpt, subOpt}  =
   let val (nucNode, itCorr, isChar)  =  doNucleus st cr isOp nucleus

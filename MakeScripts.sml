@@ -29,10 +29,10 @@ struct
   fun almost_xHeight st  =  (xHeight st * 4) div 5
 
   fun SupPos0 st isChar hnuc  =
-      if  isChar  then  zero  else  hnuc - SupDrop (script st)
+      if  isChar  then  ZERO  else  hnuc - SupDrop (script st)
 
   fun SubPos0 st isChar dnuc  =
-      if  isChar  then  zero  else  dnuc + SubDrop (script st)
+      if  isChar  then  ZERO  else  dnuc + SubDrop (script st)
 
   fun SupPos st cr isChar hnuc dsup  =
       maximum0 [SupPos0 st isChar hnuc,  Sup cr st,    dsup + xHeight st div 4]

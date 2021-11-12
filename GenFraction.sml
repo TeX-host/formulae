@@ -22,7 +22,7 @@ struct
   let val width    =  max (#width numBox, #width denBox)
       val numBox'  =  rebox width numBox  and  denBox'  =  rebox width denBox
       val th       =  optVal (RuleThickness st) thickness
-      val middle   =  if  th = zero  then  makeAtop  st numBox' denBox'
+      val middle   =  if  th = ZERO  then  makeAtop  st numBox' denBox'
                                      else  makeFract st th width numBox' denBox'
       val leftNode   =  makeDelimiter st left
       val rightNode  =  makeDelimiter st right

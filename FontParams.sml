@@ -110,7 +110,7 @@ struct
   |   sup3  5  =  distRat (53, 36)      (*  53 / 36 *)
 
   fun sub1 10  =  distRat (3, 2)
-  |   sub1  _  =  one
+  |   sub1  _  =  ONE
 
   fun sub2 10  =  distRat (89, 36)
   |   sub2  9  =  distRat (19, 12)
@@ -143,6 +143,6 @@ struct
   fun big_op_spacing2 s  =  distRat (s, 6)
   fun big_op_spacing3 s  =  distRat (s, 5)
   fun big_op_spacing4 s  =  distRat (4 + 5 * s, 9)
-  fun big_op_spacing5 s  =  one
+  fun big_op_spacing5 s  =  ONE
 
 end  (* structure FontParams *)
