@@ -17,7 +17,10 @@ struct
 (* Since functions such as `fold' and `exists' depend on the version,
    I program everything from the basic constructors. *)
 
-  fun round r  =  trunc (r + 0.5)         (* "truncate" in other versions *)
+  (* `val round : real -> int`
+    https://smlfamily.github.io/Basis/real.html#SIG:REAL.round:VAL:SPEC
+  *)
+  (* fun round r  =  trunc (r + 0.5)         (* "truncate" in other versions *)  *)
 
   fun fold g c  =  let fun f    []     =  c
                        |   f (h :: t)  =  g (h, f t)
