@@ -11,6 +11,7 @@ sig
   val contains:   ''a list -> ''a -> bool
   (* rev a @ b *)
   val revAppend:  'a list -> 'a list -> 'a list
+
   val optVal:     'a -> 'a option -> 'a
   val optMap:     ('a -> 'b) -> 'a option -> 'b option
   val optFold:    'b -> ('a -> 'b) -> 'a option -> 'b
@@ -44,13 +45,16 @@ struct
     | contains (h :: t) x = x = h orelse contains t x;
   fun revAppend hd tl = (rev hd) @ tl;
 
-  fun optMap f  =  fn NONE    =>  NONE
-                   |  SOME x  =>  SOME (f x)
-
+  (* `val map : ('a -> 'b) -> 'a option -> 'b option`
+    https://smlfamily.github.io/Basis/option.html#SIG:OPTION.map:VAL:SPEC
+   *)
+  val optMap = map;
+  (* fun optMap f  =  fn NONE    =>  NONE
+                   |  SOME x  =>  SOME (f x) *)
   fun optFold y f  =  fn NONE    =>  y
                       |  SOME x  =>  f x
-
-  fun optVal y  =  optFold y (fn x => x)
+  (* fun optVal y  =  optFold y (fn x => x) *)
+  fun optVal a opt = getOpt (opt, a);
 
   fun lookUp x  =
   let fun searchx          []        =  NONE
