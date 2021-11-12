@@ -9,7 +9,8 @@ sig
 
   (* Check if [list] contains x *)
   val contains:   ''a list -> ''a -> bool
-  val revAppend:  'a list -> 'a list -> 'a list      (* rev a @ b *)
+  (* rev a @ b *)
+  val revAppend:  'a list -> 'a list -> 'a list
   val optVal:     'a -> 'a option -> 'a
   val optMap:     ('a -> 'b) -> 'a option -> 'b option
   val optFold:    'b -> ('a -> 'b) -> 'a option -> 'b
@@ -41,9 +42,7 @@ struct
 
   fun contains    []    x = false
     | contains (h :: t) x = x = h orelse contains t x;
-
-  fun revAppend    []     yl  =  yl
-  |   revAppend (x :: xl) yl  =  revAppend xl (x :: yl)
+  fun revAppend hd tl = (rev hd) @ tl;
 
   fun optMap f  =  fn NONE    =>  NONE
                    |  SOME x  =>  SOME (f x)
