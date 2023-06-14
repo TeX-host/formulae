@@ -126,3 +126,9 @@ Unfortunately, there is no documentation of the usage of the system
 other than the remarks in this file
 (mainly because we have not yet implemented a nice user interface).
 ```
+
+## [License](LICENSE.md)
+
+```
+// SPDX-License-Identifier: BSD-2-Clause
+```
