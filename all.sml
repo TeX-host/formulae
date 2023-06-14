@@ -8,11 +8,14 @@ U "BasicTypes";
 (** Only open stdlibs *)
 U "General";
 
+(** Open ... *)
 U "Distance";
+
 U "Size";
 U "FontTypes";
 U "LoadFont";
 U "FontVector";
+
 U "CharInfo";
 U "CharFunctions";
 U "Const";
@@ -27,6 +30,7 @@ U "HListGlue";
 U "BoxPack";
 U "MakeVBox";
 U "AxisCenter";
+
 U "ChangeStyle";
 U "Accent";
 U "Radical";
@@ -39,6 +43,7 @@ U "Delimiter";
 U "GenFraction";
 U "MakeLimOp";
 U "MakeScripts";
+
 U "MathTypes";
 U "Kind";
 U "MathSpace";
@@ -52,15 +57,18 @@ U "Boundaries";
 U "IListTranslate";
 U "MathTranslate";
 U "Formula";
+
+(* for creating dvi files. *)
 U "Out";
 U "OutHigh";
+
 U "OutDvi";
 U "DviState";
 U "DviCmd";
 U "SetNode";
 U "SetBox";
 U "ShipOut";
+
+(* Utilities for testing *)
 U "Input";
 U "test";
-(*
-*)
