@@ -14,6 +14,12 @@ struct
     | fontFamilyIdx SY = 2
     | fontFamilyIdx EX = 3
 
+  (* layout style:
+   *  Display style: displayed formulae
+   *  | Text style:  inline formulae
+   *  | Script style:  ‘scripts’ (superscripts and subscripts)
+   *  | Script Script style:  scripts of scripts and other subformulae with tiny typesetting
+   *)
   datatype style  = D | T | S | SS
   (* Old Name: `styleNr` *)
   fun fontStyleIdx D  = 0
