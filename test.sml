@@ -28,6 +28,9 @@ val mlss'  =  fss sum @ fss int @ scr "a" @ scr "b" @ scr "aa" @ scr "ab"
 val overmlss'  =  [overline mlss']
 
 val out = ShipOut.shipOut
+
+(* generate empty DVI *)
+fun test0 ()  =  out "test0.dvi" []
 (* generate 4 simple equtions *)
 fun test1 ()  =  out "test1.dvi" [disp mlar, line mlar, disp mleq, line mleq]
 (* generate 4 complex equtions *)
